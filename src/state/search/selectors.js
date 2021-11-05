@@ -2,6 +2,34 @@ import { createSelector } from "reselect";
 import emoji from "@lewismoten/emoji";
 
 const slice = ({ search = {} } = {}) => search;
-export const list = createSelector(slice, slice => {
-  return Object.keys(emoji);
+const text = createSelector(slice, ({ text = "" }) => text);
+const matchingKeys = createSelector(text, text =>
+  Object.keys(emoji).filter(key =>
+    text
+      .split(" ")
+      .some(word => key.toLowerCase().indexOf(word.toLowerCase()) !== -1)
+  )
+);
+export const list = createSelector(matchingKeys, matchingKeys => {
+  return matchingKeys.map(key => ({
+    key,
+    value: emoji[key],
+    encodedValue: encode(emoji[key]),
+    text: key.replace(/\B[A-Z]/g, c => ` ${c.toLowerCase()}`)
+  }));
 });
+
+const encode = value => {
+  var bits = [];
+  var i;
+  for (i = 0; i < value.length; i++) {
+    const hex = value.codePointAt(i).toString(16);
+    if (hex.length <= 4) {
+      bits.push("\\u" + hex);
+    } else {
+      bits.push("\\u{" + hex + "}");
+      i++; // skip next code as this one overlaps into it
+    }
+  }
+  return bits.join("");
+};

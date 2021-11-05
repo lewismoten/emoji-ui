@@ -55,6 +55,7 @@
     "redux-saga-routines": "^3.2.3",
     "redux-thunk": "^2.4.0",
     "reselect": "^4.1.1",
+    "rsuite": "^5.1.0",
     "style-loader": "^3.3.1",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"

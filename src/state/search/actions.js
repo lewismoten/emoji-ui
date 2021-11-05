@@ -5,3 +5,4 @@ const build = actionBuilder("search", emoji.magnifyingGlassTiltedRight);
 
 export const load = build("load");
 export const unload = build("unload");
+export const filterText = build("filterText");

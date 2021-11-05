@@ -7,8 +7,13 @@ const initialState = {
   byId: {},
   isLoading: false,
   hasLoaded: false,
-  hasError: false
+  hasError: false,
+  text: ""
 };
+
+const onFilterText = produce((draft, action) => {
+  draft.text = action.payload;
+});
 
 const onLoadRequest = produce((draft, action) => {
   draft.isLoading = true;
@@ -34,7 +39,8 @@ export default handleActions(
     [actions.load.REQUEST]: onLoadRequest,
     [actions.load.SUCCESS]: onLoadSuccess,
     [actions.load.FAILURE]: onLoadFailure,
-    [actions.load.FULFILL]: onLoadFulfill
+    [actions.load.FULFILL]: onLoadFulfill,
+    [actions.filterText.TRIGGER]: onFilterText
   },
   initialState
 );
