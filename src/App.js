@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <InputGroup>
         <Input size="lg" onChange={onChange} />
-        <Dropdown onSelect={onSelectView} title="View">
+        <Dropdown onSelect={onSelectView} title={view}>
           {constants.VIEWS.map(view => (
             <Dropdown.Item key={view} eventKey={view}>
               {view}
