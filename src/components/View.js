@@ -3,7 +3,7 @@ import React from "react";
 import ListView from "./ListView";
 import DetailView from "./DetailView";
 import IconView from "./IconView";
-import * as constants from "./constants";
+import * as constants from "../utils/constants";
 
 const View = ({ view, list }) => {
   switch (view) {

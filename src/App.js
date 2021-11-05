@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { InputGroup, Input, Dropdown } from "rsuite";
 import * as actions from "./state/search/actions";
 import * as selectors from "./state/search/selectors";
-import * as constants from "./constants";
-import View from "./View";
+import * as constants from "./utils/constants";
+import View from "./components/View";
 
 function App() {
   const dispatch = useDispatch();
