@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { InputGroup, Input, Dropdown } from "rsuite";
+import { InputGroup, Input, Dropdown, Affix } from "rsuite";
 import * as actions from "./state/search/actions";
 import * as selectors from "./state/search/selectors";
 import * as constants from "./utils/constants";
@@ -26,16 +26,18 @@ function App() {
 
   return (
     <div className="App">
-      <InputGroup>
-        <Input size="lg" onChange={onChange} />
-        <Dropdown onSelect={onSelectView} title={view}>
-          {constants.VIEWS.map(view => (
-            <Dropdown.Item key={view} eventKey={view}>
-              {view}
-            </Dropdown.Item>
-          ))}
-        </Dropdown>
-      </InputGroup>
+      <Affix>
+        <InputGroup>
+          <Input size="lg" onChange={onChange} />
+          <Dropdown onSelect={onSelectView} title={view}>
+            {constants.VIEWS.map(view => (
+              <Dropdown.Item key={view} eventKey={view}>
+                {view}
+              </Dropdown.Item>
+            ))}
+          </Dropdown>
+        </InputGroup>
+      </Affix>
       <View view={view} list={list} />
     </div>
   );
