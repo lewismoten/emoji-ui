@@ -15,9 +15,16 @@ export const list = createSelector(matchingKeys, matchingKeys => {
     key,
     value: emoji[key],
     encodedValue: encode(emoji[key]),
-    text: key.replace(/\B[A-Z]/g, c => ` ${c.toLowerCase()}`)
+    text: camelCaseToText(key)
   }));
 });
+
+const camelCaseToText = camelCase =>
+  // my17CHARACTERTest = my 17 character test
+  camelCase
+    .replace(/\B([A-Z\d])([^A-Z\d])/g, " $1$2")
+    .replace(/([a-z])([\dA-Z])/g, "$1 $2")
+    .toLowerCase();
 
 const encode = value => {
   var bits = [];
