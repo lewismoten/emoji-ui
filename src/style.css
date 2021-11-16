@@ -1,34 +1,39 @@
 .string {
   color: cyan;
 }
+
 .string::before {
-  content: '"'
+  content: '"';
 }
+
 .string::after {
-  content: '"'
+  content: '"';
 }
 
 .string .escape {
-  color: lightgreen
+  color: lightgreen;
 }
 
 .string .bracket {
-color: white
+  color: white;
 }
 
 .string .code {
-color: cyan
+  color: cyan;
 }
+
 .string .bracket .code {
   padding-left: 5px;
   padding-right: 5px;
-color: gray
+  color: gray;
 }
+
 .comment {
-  color: #636363
+  color: #636363;
 }
+
 .comment::before {
-  content: "// "
+  content: "// ";
 }
 
 .object {
