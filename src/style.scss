@@ -1,6 +1,5 @@
-
 .string {
-  color: cyan;
+  color: var(--rs-text-link);
 
   &::before {
     content: '"';
@@ -11,26 +10,26 @@
   }
 
   .escape {
-    color: lightgreen;
+    color: var(--rs-text-link-active);
   }
 
   .code {
-    color: cyan;
+    color: var(--rs-text-primary);
   }
 
   .bracket {
-    color: white;
+    color: var(--rs-text-active);
 
     .code {
       padding-left: 5px;
       padding-right: 5px;
-      color: gray;
+      color: var(--rs-text-tertiary);
     }
   }
 }
 
 .comment {
-  color: #636363;
+  color: var(--rs-text-tertiary);
 
   &::before {
     content: "// ";
@@ -38,13 +37,13 @@
 }
 
 .object {
-  color: silver;
+  color: var(--rs-text-error);
 
   .delimiter {
-    color: silver;
+    color: var(--rs-text-secondary);
   }
 
   .key {
-    color: red;
+    color: var(--rs-text-primary);
   }
 }
