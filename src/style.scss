@@ -1,49 +1,50 @@
+
 .string {
   color: cyan;
-}
 
-.string::before {
-  content: '"';
-}
+  &::before {
+    content: '"';
+  }
 
-.string::after {
-  content: '"';
-}
+  &::after {
+    content: '"';
+  }
 
-.string .escape {
-  color: lightgreen;
-}
+  .escape {
+    color: lightgreen;
+  }
 
-.string .bracket {
-  color: white;
-}
+  .code {
+    color: cyan;
+  }
 
-.string .code {
-  color: cyan;
-}
+  .bracket {
+    color: white;
 
-.string .bracket .code {
-  padding-left: 5px;
-  padding-right: 5px;
-  color: gray;
+    .code {
+      padding-left: 5px;
+      padding-right: 5px;
+      color: gray;
+    }
+  }
 }
 
 .comment {
   color: #636363;
-}
 
-.comment::before {
-  content: "// ";
+  &::before {
+    content: "// ";
+  }
 }
 
 .object {
   color: silver;
-}
 
-.object .delimiter {
-  color: silver;
-}
+  .delimiter {
+    color: silver;
+  }
 
-.object .key {
-  color: red;
+  .key {
+    color: red;
+  }
 }
