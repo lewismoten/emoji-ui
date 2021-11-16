@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react'
 
-import ListView from "./ListView";
-import DetailView from "./DetailView";
-import IconView from "./IconView";
-import * as constants from "../utils/constants";
+import ListView from './ListView'
+import DetailView from './DetailView'
+import IconView from './IconView'
+import * as constants from '../utils/constants'
 
-const View = ({ view, list }) => {
+const View = ({ view, list, size }) => {
   switch (view) {
     case constants.VIEW_ICONS:
-      return <IconView list={list} />;
+      return <IconView list={list} size={size} />
     case constants.VIEW_LIST:
-      return <ListView list={list} />;
+      return <ListView list={list} size={size} />
     case constants.VIEW_DETAILS:
-      return <DetailView list={list} />;
+      return <DetailView list={list} size={size} />
   }
-};
+}
 
-export default View;
+export default View

@@ -1,6 +1,6 @@
-import { handleActions } from "redux-actions";
-import produce from "immer";
-import * as actions from "./actions";
+import { handleActions } from 'redux-actions'
+import produce from 'immer'
+import * as actions from './actions'
 
 const initialState = {
   allIds: [],
@@ -8,31 +8,31 @@ const initialState = {
   isLoading: false,
   hasLoaded: false,
   hasError: false,
-  text: ""
-};
+  text: ''
+}
 
 const onFilterText = produce((draft, action) => {
-  draft.text = action.payload;
-});
+  draft.text = action.payload
+})
 
 const onLoadRequest = produce((draft, action) => {
-  draft.isLoading = true;
-});
+  draft.isLoading = true
+})
 
 const onLoadSuccess = produce((draft, action) => {
-  draft.hasError = false;
-  draft.allIds = action.payload.allIds;
-  draft.byId = action.payload.byId;
-  draft.hasLoaded = true;
-});
+  draft.hasError = false
+  draft.allIds = action.payload.allIds
+  draft.byId = action.payload.byId
+  draft.hasLoaded = true
+})
 
 const onLoadFailure = produce((draft, action) => {
-  draft.hasError = true;
-});
+  draft.hasError = true
+})
 
 const onLoadFulfill = produce((draft, action) => {
-  draft.isLoading = false;
-});
+  draft.isLoading = false
+})
 
 export default handleActions(
   {
@@ -43,4 +43,4 @@ export default handleActions(
     [actions.filterText.TRIGGER]: onFilterText
   },
   initialState
-);
+)

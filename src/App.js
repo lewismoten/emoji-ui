@@ -9,6 +9,7 @@ import {
   IconButton
 } from 'rsuite'
 import ImageIcon from '@rsuite/icons/Image'
+import ResizeIcon from '@rsuite/icons/Resize'
 import * as actions from './state/search/actions'
 import * as selectors from './state/search/selectors'
 import * as constants from './utils/constants'
@@ -19,7 +20,9 @@ function App () {
   const list = useSelector(selectors.list)
   const [view, setView] = useState(constants.VIEW_ICONS)
   const themes = ['dark', 'high-contrast', 'light']
+  const sizes = ['xs', 'sm', 'md', 'lg']
   const [theme, setTheme] = useState(themes[0])
+  const [size, setSize] = useState(sizes[0])
 
   useEffect(() => {
     dispatch(actions.load())
@@ -40,12 +43,19 @@ function App () {
     setTheme(themes[next])
   }
 
+  const onClickResize = (value, e) => {
+    let index = sizes.indexOf(size)
+    const next = ++index % sizes.length
+    setSize(sizes[next])
+  }
+
   return (
     <CustomProvider theme={theme}>
       <div className='App'>
         <Affix>
           <InputGroup>
             <IconButton icon={<ImageIcon />} onClick={onClickTheme} />
+            <IconButton icon={<ResizeIcon />} onClick={onClickResize} />
             <Input size='lg' onChange={onChange} />
             <Dropdown onSelect={onSelectView} title={view}>
               {constants.VIEWS.map(view => (
@@ -56,7 +66,7 @@ function App () {
             </Dropdown>
           </InputGroup>
         </Affix>
-        <View view={view} list={list} />
+        <View view={view} list={list} size={size} />
       </div>
     </CustomProvider>
   )

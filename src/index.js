@@ -7,7 +7,6 @@ import store from './state/store'
 import 'rsuite/dist/rsuite.min.css'
 import './style.scss'
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

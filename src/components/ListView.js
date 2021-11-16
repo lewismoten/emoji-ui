@@ -1,14 +1,13 @@
-import React from "react";
-import { FlexboxGrid, Button } from "rsuite";
+import React from 'react'
+import { FlexboxGrid } from 'rsuite'
+import EmojiButton from './EmojiButton'
 
-const ListView = ({ list }) => (
+const ListView = ({ list, size }) => (
   <FlexboxGrid>
     {list.map(({ key, value }) => (
-      <Button key={key} size="sm" appearance="subtle">
-        {`${value} ${key}`}
-      </Button>
+      <EmojiButton key={key} value={`${value} ${key}`} size={size} />
     ))}
   </FlexboxGrid>
-);
+)
 
-export default ListView;
+export default ListView
