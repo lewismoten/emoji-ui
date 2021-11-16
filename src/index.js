@@ -6,6 +6,7 @@ import App from "./App";
 
 import store from "./state/store";
 import "rsuite/dist/rsuite.min.css";
+import './style.css';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,44 @@
+.string {
+  color: cyan;
+}
+.string::before {
+  content: '"'
+}
+.string::after {
+  content: '"'
+}
+
+.string .escape {
+  color: lightgreen
+}
+
+.string .bracket {
+color: white
+}
+
+.string .code {
+color: cyan
+}
+.string .bracket .code {
+  padding-left: 5px;
+  padding-right: 5px;
+color: gray
+}
+.comment {
+  color: #636363
+}
+.comment::before {
+  content: "// "
+}
+
+.object {
+  color: silver;
+}
+
+.object .delimiter {
+  color: silver;
+}
+
+.object .key {
+  color: red;
+}

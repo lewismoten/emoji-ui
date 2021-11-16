@@ -15,7 +15,8 @@ export const list = createSelector(matchingKeys, matchingKeys => {
     key,
     value: emoji[key],
     encodedValue: encode(emoji[key]),
-    text: camelCaseToText(key)
+    text: camelCaseToText(key),
+    codePoints: codePoints(emoji[key])
   }));
 });
 
@@ -40,3 +41,9 @@ const encode = value => {
   }
   return bits.join("");
 };
+
+const codePoints = value =>
+  encode(value)
+    .split("\\u")
+    .filter(v => v !== "")
+    .map(v => v.replace(/[{}]/g, ""))
