@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = function(env, argv) {
   const isProd = argv.mode === "production";
   const isDev = !isProd;
@@ -29,7 +29,7 @@ module.exports = function(env, argv) {
             }
           }
         },
-        { test: /\.css$/i, use: ["style-loader", "css-loader"] }
+        { test: /\.(s(a|c)ss|css)$/i, use: ['style-loader', "css-loader", 'sass-loader'] }
       ]
     },
     resolve: {
