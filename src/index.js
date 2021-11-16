@@ -1,20 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { CustomProvider } from "rsuite";
-import { Provider } from "react-redux";
-import App from "./App";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import App from './App'
 
-import store from "./state/store";
-import "rsuite/dist/rsuite.min.css";
-import "./style.scss";
+import store from './state/store'
+import 'rsuite/dist/rsuite.min.css'
+import './style.scss'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <CustomProvider theme="dark">
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </CustomProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
-);
+  document.getElementById('root')
+)
