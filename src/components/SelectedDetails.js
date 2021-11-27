@@ -5,10 +5,11 @@ import {
   Drawer
 } from 'rsuite'
 
-const SelectedDetails = ({ isVisible, id, text, onClose }) => {
+const SelectedDetails = ({ isVisible, id, text, onClose, title }) => {
   return (
     <Drawer open={isVisible} onClose={onClose} size="xs" backdrop={false}>
       <PanelGroup>
+        <Panel>{title}</Panel>
         <Panel>{id}</Panel>
         <Panel>{text}</Panel>
       </PanelGroup>

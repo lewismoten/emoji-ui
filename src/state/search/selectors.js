@@ -23,6 +23,7 @@ export const list = createSelector(matchingKeys, matchingKeys => {
 export const selectedId = createSelector(slice, ({selectedId}) => selectedId);
 export const hasSelection = createSelector(selectedId, selectedId => !!selectedId);
 export const selectedText = createSelector(hasSelection, selectedId, (hasSelection, selectedId) => hasSelection ? emoji[selectedId] : '');
+export const selectedTitle = createSelector(hasSelection, selectedId, (hasSelection, selectedId) => hasSelection ? camelCaseToText(selectedId) : '');
 
 const camelCaseToText = camelCase =>
   // my17CHARACTERTest = my 17 character test

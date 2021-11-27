@@ -22,6 +22,7 @@ function App () {
   const list = useSelector(selectors.list)
   const selectedId = useSelector(selectors.selectedId)
   const selectedText = useSelector(selectors.selectedText)
+  const selectedTitle = useSelector(selectors.selectedTitle)
   const hasSelection = useSelector(selectors.hasSelection)
   const [view, setView] = useState(constants.VIEW_ICONS)
   const themes = ['dark', 'high-contrast', 'light']
@@ -79,7 +80,10 @@ function App () {
           </InputGroup>
         </Affix>
         <View view={view} list={list} size={size} onSelect={onSelect} />
-        <SelectedDetails isVisible={hasSelection} id={selectedId} text={selectedText} onClose={onDeselect} />
+        <SelectedDetails
+        isVisible={hasSelection} id={selectedId} text={selectedText}
+        onClose={onDeselect}
+        title={selectedTitle} />
       </div>
     </CustomProvider>
   )
