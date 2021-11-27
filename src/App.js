@@ -6,7 +6,8 @@ import {
   Input,
   Dropdown,
   Affix,
-  IconButton
+  IconButton,
+  Panel
 } from 'rsuite'
 import ImageIcon from '@rsuite/icons/Image'
 import ResizeIcon from '@rsuite/icons/Resize'
@@ -14,11 +15,13 @@ import * as actions from './state/search/actions'
 import * as selectors from './state/search/selectors'
 import * as constants from './utils/constants'
 import View from './components/View'
+import SelectedDetails from './components/SelectedDetails'
 
 function App () {
   const dispatch = useDispatch()
   const list = useSelector(selectors.list)
   const selectedKey = useSelector(selectors.selectedKey)
+  const isKeySelected = useSelector(selectors.isKeySelected)
   const [view, setView] = useState(constants.VIEW_ICONS)
   const themes = ['dark', 'high-contrast', 'light']
   const sizes = ['xs', 'sm', 'md', 'lg']
@@ -70,6 +73,7 @@ function App () {
               ))}
             </Dropdown>
           </InputGroup>
+          <SelectedDetails isVisible={isKeySelected} selectedKey={selectedKey} />
         </Affix>
         <View view={view} list={list} size={size} onSelect={onSelect} />
       </div>

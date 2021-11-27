@@ -21,6 +21,7 @@ export const list = createSelector(matchingKeys, matchingKeys => {
 })
 
 export const selectedKey = createSelector(slice, ({selectedKey}) => selectedKey);
+export const isKeySelected = createSelector(selectedKey, selectedKey => !!selectedKey);
 
 const camelCaseToText = camelCase =>
   // my17CHARACTERTest = my 17 character test

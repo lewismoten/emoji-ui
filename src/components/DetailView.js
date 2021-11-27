@@ -6,7 +6,7 @@ import EmojiButton from './EmojiButton'
 const DetailView = ({ list, size, onSelect }) => (
   <Grid>
     {list.map(({ key, value, text, encodedValue, codePoints }) => (
-      <Row key={key}>
+      <Row key={key} onClick={() => onSelect(key)}>
         <Col xs={1}>
           <EmojiButton value={value} size={size} onClick={() => onSelect(key)} />
         </Col>
