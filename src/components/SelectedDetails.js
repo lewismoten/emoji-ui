@@ -9,9 +9,9 @@ import {
 import CloseOutlineIcon from '@rsuite/icons/CloseOutline';
 import CodePoints from './CodePoints';
 
-const SelectedDetails = ({ isVisible, id, text, onClose, title, codePoints }) => {
+const SelectedDetails = ({ isVisible, id, text, onClose, title, codePoints, position }) => {
   return (
-    <Drawer open={isVisible} onClose={onClose} size="xs" backdrop={false}>
+    <Drawer open={isVisible} onClose={onClose} size="xs" backdrop={false} placement={position}>
       <PanelGroup>
         <Drawer.Header>
           <Drawer.Title>{title}</Drawer.Title>

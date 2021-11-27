@@ -30,6 +30,7 @@ function App () {
   const sizes = ['xs', 'sm', 'md', 'lg']
   const [theme, setTheme] = useState(themes[0])
   const [size, setSize] = useState(sizes[0])
+  const [drawerPosition, setDrawerPosition] = useState('right');
 
   useEffect(() => {
     dispatch(actions.load())
@@ -56,7 +57,8 @@ function App () {
     setSize(sizes[next])
   }
 
-  const onSelect = (id) => {
+  const onSelect = (id, {pageX}) => {
+    setDrawerPosition(pageX < document.body.clientWidth / 2 ? 'right' : 'left');
     dispatch(actions.select(id))
   };
   const onDeselect = id => {
@@ -85,7 +87,8 @@ function App () {
         isVisible={hasSelection} id={selectedId} text={selectedText}
         onClose={onDeselect}
         title={selectedTitle}
-        codePoints={selectedCodePoints} />
+        codePoints={selectedCodePoints}
+        position={drawerPosition} />
       </div>
     </CustomProvider>
   )
