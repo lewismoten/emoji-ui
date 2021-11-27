@@ -23,6 +23,7 @@ function App () {
   const selectedId = useSelector(selectors.selectedId)
   const selectedText = useSelector(selectors.selectedText)
   const selectedTitle = useSelector(selectors.selectedTitle)
+  const selectedCodePoints = useSelector(selectors.selectedCodePoints)
   const hasSelection = useSelector(selectors.hasSelection)
   const [view, setView] = useState(constants.VIEW_ICONS)
   const themes = ['dark', 'high-contrast', 'light']
@@ -83,7 +84,8 @@ function App () {
         <SelectedDetails
         isVisible={hasSelection} id={selectedId} text={selectedText}
         onClose={onDeselect}
-        title={selectedTitle} />
+        title={selectedTitle}
+        codePoints={selectedCodePoints} />
       </div>
     </CustomProvider>
   )

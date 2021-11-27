@@ -6,9 +6,10 @@ import {
   List,
   FlexboxGrid
 } from 'rsuite'
-import CloseOutlineIcon from '@rsuite/icons/CloseOutline'
+import CloseOutlineIcon from '@rsuite/icons/CloseOutline';
+import CodePoints from './CodePoints';
 
-const SelectedDetails = ({ isVisible, id, text, onClose, title }) => {
+const SelectedDetails = ({ isVisible, id, text, onClose, title, codePoints }) => {
   return (
     <Drawer open={isVisible} onClose={onClose} size="xs" backdrop={false}>
       <PanelGroup>
@@ -33,6 +34,18 @@ const SelectedDetails = ({ isVisible, id, text, onClose, title }) => {
             <FlexboxGrid>
               <FlexboxGrid.Item colspan={3}>Title</FlexboxGrid.Item>
               <FlexboxGrid.Item colspan={6}>{title}</FlexboxGrid.Item>
+            </FlexboxGrid>
+          </List.Item>
+          <List.Item>
+            <FlexboxGrid>
+              <FlexboxGrid.Item colspan={3}>Hex Code Points</FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="hex" /></FlexboxGrid.Item>
+            </FlexboxGrid>
+          </List.Item>
+          <List.Item>
+            <FlexboxGrid>
+              <FlexboxGrid.Item colspan={3}>ES6 Escape Sequences</FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="es6" /></FlexboxGrid.Item>
             </FlexboxGrid>
           </List.Item>
         </List>
