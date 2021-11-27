@@ -9,7 +9,7 @@ const initialState = {
   hasLoaded: false,
   hasError: false,
   text: '',
-  selectedId: false
+  selectedId: undefined
 }
 
 const onFilterText = produce((draft, action) => {
@@ -18,6 +18,9 @@ const onFilterText = produce((draft, action) => {
 
 const onSelect = produce((draft, action) => {
   draft.selectedId = action.payload
+})
+const onDeselect = produce((draft, action) => {
+  draft.selectedId = undefined
 })
 
 const onLoadRequest = produce((draft, action) => {
@@ -46,7 +49,8 @@ export default handleActions(
     [actions.load.FAILURE]: onLoadFailure,
     [actions.load.FULFILL]: onLoadFulfill,
     [actions.filterText.TRIGGER]: onFilterText,
-    [actions.select.TRIGGER]: onSelect
+    [actions.select.TRIGGER]: onSelect,
+    [actions.deselect.TRIGGER]: onDeselect,
   },
   initialState
 )

@@ -57,6 +57,9 @@ function App () {
   const onSelect = (id) => {
     dispatch(actions.select(id))
   };
+  const onDeselect = id => {
+    dispatch(actions.deselect())
+  }
 
   return (
     <CustomProvider theme={theme}>
@@ -74,9 +77,9 @@ function App () {
               ))}
             </Dropdown>
           </InputGroup>
-          <SelectedDetails isVisible={hasSelection} id={selectedId} text={selectedText} />
         </Affix>
         <View view={view} list={list} size={size} onSelect={onSelect} />
+        <SelectedDetails isVisible={hasSelection} id={selectedId} text={selectedText} onClose={onDeselect} />
       </div>
     </CustomProvider>
   )
