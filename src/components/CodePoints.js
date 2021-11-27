@@ -11,6 +11,9 @@ const UnicodeCode = ({ hex }) => {
 const Hex = ({ hex }) => {
   return <span className="hex">{hex}</span>
 }
+const Decimal = ({ hex }) => {
+  return <span className="decimal">{parseInt(hex, 16)}</span>
+}
 
 const CodePoints = ({ value, format }) => {
 
@@ -24,7 +27,13 @@ const CodePoints = ({ value, format }) => {
     case "hex":
       return (
         <span className="list-delimited">
-          {value.map((hex, i, a) => <Hex key={i} hex={hex} isLast={i === a.length - 1} />)}
+          {value.map((hex, i) => <Hex key={i} hex={hex} />)}
+        </span>
+      );
+    case "decimal":
+      return (
+        <span className="list-delimited">
+          {value.map((hex, i) => <Decimal key={i} hex={hex} />)}
         </span>
       );
     default:

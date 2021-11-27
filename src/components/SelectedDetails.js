@@ -38,6 +38,12 @@ const SelectedDetails = ({ isVisible, id, text, onClose, title, codePoints }) =>
           </List.Item>
           <List.Item>
             <FlexboxGrid>
+              <FlexboxGrid.Item colspan={3}>Code Points</FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="decimal" /></FlexboxGrid.Item>
+            </FlexboxGrid>
+          </List.Item>
+          <List.Item>
+            <FlexboxGrid>
               <FlexboxGrid.Item colspan={3}>Hex Code Points</FlexboxGrid.Item>
               <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="hex" /></FlexboxGrid.Item>
             </FlexboxGrid>

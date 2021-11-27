@@ -72,4 +72,21 @@
     }
 
   }
+
+  .decimal {
+    color: var(--rs-text-active);
+
+    &:not(:last-child) {
+      &:after {
+        color: var(--rs-text-primary);
+        content: ', ';
+      }
+    }
+
+    &::before {
+      color: var(--rs-text-tertiary);
+      content: '';
+    }
+
+  }
 }
