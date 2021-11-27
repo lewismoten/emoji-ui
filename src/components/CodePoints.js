@@ -11,6 +11,9 @@ const UnicodeCode = ({ hex }) => {
 const Hex = ({ hex }) => {
   return <span className="hex">{hex}</span>
 }
+const HtmlEntity = ({ hex }) => {
+  return <span className="html-entity">{hex}</span>
+}
 const Decimal = ({ hex }) => {
   return <span className="decimal">{parseInt(hex, 16)}</span>
 }
@@ -28,6 +31,12 @@ const CodePoints = ({ value, format }) => {
       return (
         <span className="list-delimited">
           {value.map((hex, i) => <Hex key={i} hex={hex} />)}
+        </span>
+      );
+    case "html":
+      return (
+        <span className="list-delimited">
+          {value.map((hex, i) => <HtmlEntity key={i} hex={hex} />)}
         </span>
       );
     case "decimal":

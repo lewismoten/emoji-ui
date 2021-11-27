@@ -56,6 +56,21 @@
 
 .list-delimited {
 
+  .html-entity {
+    color: var(--rs-text-active);
+
+    &:after {
+      color: var(--rs-text-primary);
+      content: ';';
+    }
+
+    &::before {
+      color: var(--rs-text-tertiary);
+      content: '&#x';
+    }
+
+  }
+
   .hex {
     color: var(--rs-text-active);
 

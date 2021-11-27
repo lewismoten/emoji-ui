@@ -44,14 +44,20 @@ const SelectedDetails = ({ isVisible, id, text, onClose, title, codePoints }) =>
           </List.Item>
           <List.Item>
             <FlexboxGrid>
-              <FlexboxGrid.Item colspan={3}>Hex Code Points</FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={3}>Hex</FlexboxGrid.Item>
               <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="hex" /></FlexboxGrid.Item>
             </FlexboxGrid>
           </List.Item>
           <List.Item>
             <FlexboxGrid>
-              <FlexboxGrid.Item colspan={3}>ES6 Escape Sequences</FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={3}>ES6</FlexboxGrid.Item>
               <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="es6" /></FlexboxGrid.Item>
+            </FlexboxGrid>
+          </List.Item>
+          <List.Item>
+            <FlexboxGrid>
+              <FlexboxGrid.Item colspan={3}>HTML</FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="html" /></FlexboxGrid.Item>
             </FlexboxGrid>
           </List.Item>
         </List>
