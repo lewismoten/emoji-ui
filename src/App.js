@@ -20,8 +20,9 @@ import SelectedDetails from './components/SelectedDetails'
 function App () {
   const dispatch = useDispatch()
   const list = useSelector(selectors.list)
-  const selectedKey = useSelector(selectors.selectedKey)
-  const isKeySelected = useSelector(selectors.isKeySelected)
+  const selectedId = useSelector(selectors.selectedId)
+  const selectedText = useSelector(selectors.selectedText)
+  const hasSelection = useSelector(selectors.hasSelection)
   const [view, setView] = useState(constants.VIEW_ICONS)
   const themes = ['dark', 'high-contrast', 'light']
   const sizes = ['xs', 'sm', 'md', 'lg']
@@ -53,8 +54,8 @@ function App () {
     setSize(sizes[next])
   }
 
-  const onSelect = (value) => {
-    dispatch(actions.selectKey(value))
+  const onSelect = (id) => {
+    dispatch(actions.select(id))
   };
 
   return (
@@ -73,7 +74,7 @@ function App () {
               ))}
             </Dropdown>
           </InputGroup>
-          <SelectedDetails isVisible={isKeySelected} selectedKey={selectedKey} />
+          <SelectedDetails isVisible={hasSelection} id={selectedId} text={selectedText} />
         </Affix>
         <View view={view} list={list} size={size} onSelect={onSelect} />
       </div>

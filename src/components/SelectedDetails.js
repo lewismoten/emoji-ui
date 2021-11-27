@@ -3,9 +3,9 @@ import {
   Panel
 } from 'rsuite'
 
-const SelectedDetails = ({ isVisible, selectedKey }) => {
+const SelectedDetails = ({ isVisible, id, text }) => {
   if(!isVisible) return null;
-  return (<div>{selectedKey}</div>)
+  return (<div>{id}:{text}</div>)
 }
 
 export default SelectedDetails
