@@ -4,4 +4,5 @@ const build = actionBuilder('search', emoji.magnifyingGlassTiltedRight)
 
 export const load = build('load')
 export const unload = build('unload')
-export const filterText = build('filterText')
+export const filterText = build('filter text')
+export const selectKey = build('select key')

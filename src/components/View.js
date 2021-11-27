@@ -5,14 +5,14 @@ import DetailView from './DetailView'
 import IconView from './IconView'
 import * as constants from '../utils/constants'
 
-const View = ({ view, list, size }) => {
+const View = ({ view, list, size, onSelect }) => {
   switch (view) {
     case constants.VIEW_ICONS:
-      return <IconView list={list} size={size} />
+      return <IconView list={list} size={size} onSelect={onSelect} />
     case constants.VIEW_LIST:
-      return <ListView list={list} size={size} />
+      return <ListView list={list} size={size} onSelect={onSelect} />
     case constants.VIEW_DETAILS:
-      return <DetailView list={list} size={size} />
+      return <DetailView list={list} size={size} onSelect={onSelect} />
   }
 }
 

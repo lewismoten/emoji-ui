@@ -8,11 +8,16 @@ const initialState = {
   isLoading: false,
   hasLoaded: false,
   hasError: false,
-  text: ''
+  text: '',
+  selectedKey: false
 }
 
 const onFilterText = produce((draft, action) => {
   draft.text = action.payload
+})
+
+const onSelectKey = produce((draft, action) => {
+  draft.selectedKey = action.payload
 })
 
 const onLoadRequest = produce((draft, action) => {
@@ -40,7 +45,8 @@ export default handleActions(
     [actions.load.SUCCESS]: onLoadSuccess,
     [actions.load.FAILURE]: onLoadFailure,
     [actions.load.FULFILL]: onLoadFulfill,
-    [actions.filterText.TRIGGER]: onFilterText
+    [actions.filterText.TRIGGER]: onFilterText,
+    [actions.selectKey.TRIGGER]: onSelectKey
   },
   initialState
 )

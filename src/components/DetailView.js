@@ -3,12 +3,12 @@ import { Grid, Row, Col } from 'rsuite'
 import UnicodeCode from './UnicodeCode'
 import EmojiButton from './EmojiButton'
 
-const DetailView = ({ list, size }) => (
+const DetailView = ({ list, size, onSelect }) => (
   <Grid>
     {list.map(({ key, value, text, encodedValue, codePoints }) => (
       <Row key={key}>
         <Col xs={1}>
-          <EmojiButton value={value} size={size} />
+          <EmojiButton value={value} size={size} onClick={() => onSelect(key)} />
         </Col>
         <Col xs={6}><span className='object'>emoji<span className='delimiter'>.</span><span className='key'>{key}</span></span></Col>
         <Col xs={9}>

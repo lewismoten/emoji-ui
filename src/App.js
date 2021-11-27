@@ -18,6 +18,7 @@ import View from './components/View'
 function App () {
   const dispatch = useDispatch()
   const list = useSelector(selectors.list)
+  const selectedKey = useSelector(selectors.selectedKey)
   const [view, setView] = useState(constants.VIEW_ICONS)
   const themes = ['dark', 'high-contrast', 'light']
   const sizes = ['xs', 'sm', 'md', 'lg']
@@ -49,6 +50,10 @@ function App () {
     setSize(sizes[next])
   }
 
+  const onSelect = (value) => {
+    dispatch(actions.selectKey(value))
+  };
+
   return (
     <CustomProvider theme={theme}>
       <div className='App'>
@@ -66,7 +71,7 @@ function App () {
             </Dropdown>
           </InputGroup>
         </Affix>
-        <View view={view} list={list} size={size} />
+        <View view={view} list={list} size={size} onSelect={onSelect} />
       </div>
     </CustomProvider>
   )
