@@ -11,7 +11,7 @@ const SelectedDetails = ({ isVisible, id, text, onClose, title }) => {
       <PanelGroup>
         <Panel>{title}</Panel>
         <Panel>{id}</Panel>
-        <Panel>{text}</Panel>
+        <Panel className="oversized-text">{text}</Panel>
       </PanelGroup>
     </Drawer>
   );
