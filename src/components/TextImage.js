@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const TextImage = ({ text }) => {
@@ -12,22 +12,29 @@ const TextImage = ({ text }) => {
     canvas.width = width;
     canvas.height = height;
     const ctx = canvas.getContext('2d');
-    ctx.font = 'Arial';
-    ctx.fillStyle = '#000000';
-    ctx.fillText(text, 0, 0);
+
+    console.log({ width, height });
+
+    ctx.font = `${height / 1.5}px sans-serif`;
+    ctx.fillStyle = 'rgb(0, 0, 0)';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, width / 2, height / 2, width);
     frameRequest.current = requestAnimationFrame(onFrame);
   };
 
-  const onFrameCallback = () => useCallback(onFrame, [onFrame, text]);
-
   useEffect(() => {
-    frameRequest.current = requestAnimationFrame(onFrameCallback);
+    frameRequest.current = requestAnimationFrame(onFrame);
     return () => {
       cancelAnimationFrame(frameRequest.current);
     };
-  }, [onFrameCallback]);
+  }, [onFrame]);
 
-  return <canvas refs={canvasRef} />;
+  return (
+    <div style={{ minWidth: '256px', minHeight: '256px' }}>
+      <canvas ref={canvasRef} width="256" height="256" />
+    </div>
+  );
 };
 
 TextImage.propTypes = {
