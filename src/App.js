@@ -93,6 +93,7 @@ function App() {
           onClose={onDeselect}
           title={selectedTitle}
           codePoints={selectedCodePoints}
+          size={size}
         />
       </div>
     </CustomProvider>

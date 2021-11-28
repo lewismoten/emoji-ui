@@ -6,6 +6,7 @@ import PageTopIcon from '@rsuite/icons/PageTop';
 import CodePoints from './CodePoints';
 import TextImage from './TextImage';
 import EmojiKey from './EmojiKey';
+import EmojiButton from './EmojiButton';
 
 const SelectedDetails = ({
   isVisible,
@@ -14,6 +15,7 @@ const SelectedDetails = ({
   onClose,
   title,
   codePoints,
+  size,
 }) => {
   const [position, setPosition] = useState('right');
   const isRight = position === 'right';
@@ -22,6 +24,9 @@ const SelectedDetails = ({
   const onTogglePosition = () => {
     setPosition(isRight ? 'left' : 'right');
   };
+
+  const propCol = 6;
+  const valueCol = 18;
 
   return (
     <Drawer
@@ -44,52 +49,58 @@ const SelectedDetails = ({
             <List hover bordered>
               <List.Item>
                 <FlexboxGrid>
-                  <FlexboxGrid.Item colspan={3}>Emoji</FlexboxGrid.Item>
-                  <FlexboxGrid.Item colspan={6}>{text}</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={propCol}>Emoji</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={valueCol}>
+                    <EmojiButton size={size} value={text} />
+                  </FlexboxGrid.Item>
                 </FlexboxGrid>
               </List.Item>
               <List.Item>
                 <FlexboxGrid>
-                  <FlexboxGrid.Item colspan={3}>Key</FlexboxGrid.Item>
-                  <FlexboxGrid.Item colspan={6}>
+                  <FlexboxGrid.Item colspan={propCol}>Key</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={valueCol}>
                     <EmojiKey id={id} />
                   </FlexboxGrid.Item>
                 </FlexboxGrid>
               </List.Item>
               <List.Item>
                 <FlexboxGrid>
-                  <FlexboxGrid.Item colspan={3}>Title</FlexboxGrid.Item>
-                  <FlexboxGrid.Item colspan={6}>{title}</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={propCol}>Title</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={valueCol}>
+                    {title}
+                  </FlexboxGrid.Item>
                 </FlexboxGrid>
               </List.Item>
               <List.Item>
                 <FlexboxGrid>
-                  <FlexboxGrid.Item colspan={3}>Code Points</FlexboxGrid.Item>
-                  <FlexboxGrid.Item colspan={6}>
+                  <FlexboxGrid.Item colspan={propCol}>
+                    Code Points
+                  </FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={valueCol}>
                     <CodePoints value={codePoints} format="decimal" />
                   </FlexboxGrid.Item>
                 </FlexboxGrid>
               </List.Item>
               <List.Item>
                 <FlexboxGrid>
-                  <FlexboxGrid.Item colspan={3}>Hex</FlexboxGrid.Item>
-                  <FlexboxGrid.Item colspan={6}>
+                  <FlexboxGrid.Item colspan={propCol}>Hex</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={valueCol}>
                     <CodePoints value={codePoints} format="hex" />
                   </FlexboxGrid.Item>
                 </FlexboxGrid>
               </List.Item>
               <List.Item>
                 <FlexboxGrid>
-                  <FlexboxGrid.Item colspan={3}>ES6</FlexboxGrid.Item>
-                  <FlexboxGrid.Item colspan={6}>
+                  <FlexboxGrid.Item colspan={propCol}>ES6</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={valueCol}>
                     <CodePoints value={codePoints} format="es6" />
                   </FlexboxGrid.Item>
                 </FlexboxGrid>
               </List.Item>
               <List.Item>
                 <FlexboxGrid>
-                  <FlexboxGrid.Item colspan={3}>HTML</FlexboxGrid.Item>
-                  <FlexboxGrid.Item colspan={6}>
+                  <FlexboxGrid.Item colspan={propCol}>HTML</FlexboxGrid.Item>
+                  <FlexboxGrid.Item colspan={valueCol}>
                     <CodePoints value={codePoints} format="html" />
                   </FlexboxGrid.Item>
                 </FlexboxGrid>
@@ -107,6 +118,7 @@ SelectedDetails.propTypes = {
   id: PropTypes.string,
   text: PropTypes.string,
   onClose: PropTypes.func,
+  size: PropTypes.string,
   title: PropTypes.string,
   codePoints: PropTypes.arrayOf(PropTypes.string),
 };
