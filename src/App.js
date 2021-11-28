@@ -80,7 +80,7 @@ function App () {
             </Dropdown>
           </InputGroup>
         </Affix>
-        <View view={view} list={list} size={size} onSelect={onSelect} />
+        <View view={view} list={list} size={size} onSelect={onSelect} selectedId={selectedId} />
         <SelectedDetails
         isVisible={hasSelection} id={selectedId} text={selectedText}
         onClose={onDeselect}
