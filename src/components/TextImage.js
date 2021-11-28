@@ -50,10 +50,6 @@ const TextImage = ({ text }) => {
     };
   }, [onFrame]);
 
-  useEffect(() => {
-    console.log(text, fontSize);
-  }, [fontSize, text]);
-
   return (
     <FlexboxGrid justify="space-around">
       <FlexboxGrid.Item>
