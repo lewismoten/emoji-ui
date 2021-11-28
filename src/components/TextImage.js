@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 const GROW = 3;
 const SHRINK = 1;
+const MAX_HEIGHT = 256;
+const MAX_WIDTH = 256;
 
 const TextImage = ({ text }) => {
   const canvasRef = useRef(null);
   const frameRequest = useRef();
 
-  const [fontSize, setFontSize] = useState(128);
+  const [fontSize, setFontSize] = useState(MAX_HEIGHT * 0.75);
 
   const onFrame = () => {
     if (!canvasRef.current) return;
@@ -24,8 +26,11 @@ const TextImage = ({ text }) => {
     ctx.font = `${fontSize}px sans-serif`;
 
     const size = ctx.measureText(text);
-    const isTooBig = size.width > width;
-    const isTooSmall = size.width + GROW < width;
+    const textHeight = size.fontBoundingBoxAscent + size.fontBoundingBoxDescent;
+
+    const isTooBig = size.width > width || textHeight > height;
+    const isTooSmall = size.width + GROW < width && textHeight + GROW < height;
+
     if (isTooBig) {
       setFontSize(fontSize - SHRINK);
     } else if (isTooSmall) {
@@ -50,7 +55,7 @@ const TextImage = ({ text }) => {
 
   return (
     <div style={{ minWidth: '256px', minHeight: '256px' }}>
-      <canvas ref={canvasRef} width="256" height="300" />
+      <canvas ref={canvasRef} width={MAX_WIDTH} height={MAX_HEIGHT} />
     </div>
   );
 };
