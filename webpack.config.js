@@ -12,7 +12,7 @@ module.exports = function (env, argv) {
     output: {
       filename: '[name].js',
       publicPath: '',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'docs'),
     },
     plugins: [new HtmlWebpackPlugin()],
     module: {
