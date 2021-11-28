@@ -1,18 +1,18 @@
 /* eslint-env node */
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = function (env, argv) {
-  const isProd = argv.mode === 'production'
-  const isDev = !isProd
+  const isProd = argv.mode === 'production';
+  const isDev = !isProd;
 
   const config = {
     mode: isProd ? 'production' : 'development',
     devtool: isDev ? 'cheap-module-source-map' : undefined,
     entry: './src/index.js',
     output: {
-      filename: 'assets/js/[name].[contenthash:8].js',
-      publicPath: '/',
-      path: path.resolve(__dirname, 'dist')
+      filename: '[name].js',
+      publicPath: '',
+      path: path.resolve(__dirname, 'dist'),
     },
     plugins: [new HtmlWebpackPlugin()],
     module: {
@@ -25,22 +25,18 @@ module.exports = function (env, argv) {
             options: {
               cacheDirectory: true,
               cacheCompression: false,
-              envName: isProd ? 'production' : 'development'
-            }
-          }
+              envName: isProd ? 'production' : 'development',
+            },
+          },
         },
         {
           test: /\.(sa|sc|c)ss$/i,
-          use: [
-            'style-loader',
-            'css-loader',
-            'sass-loader'
-          ]
-        }
-      ]
+          use: ['style-loader', 'css-loader', 'sass-loader'],
+        },
+      ],
     },
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.jsx'],
     },
     devServer: {
       compress: true,
@@ -50,10 +46,10 @@ module.exports = function (env, argv) {
         overlay: true,
         logging: 'info',
         progress: true,
-        reconnect: true
-      }
-    }
-  }
+        reconnect: true,
+      },
+    },
+  };
 
-  return config
-}
+  return config;
+};
