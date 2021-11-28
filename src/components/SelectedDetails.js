@@ -1,20 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Panel,
   PanelGroup,
   Drawer,
   List,
-  FlexboxGrid
+  FlexboxGrid,
+  IconButton
 } from 'rsuite'
-import CloseOutlineIcon from '@rsuite/icons/CloseOutline';
+import PageEndIcon from '@rsuite/icons/PageEnd';
+import PageTopIcon from '@rsuite/icons/PageTop';
 import CodePoints from './CodePoints';
 
-const SelectedDetails = ({ isVisible, id, text, onClose, title, codePoints, position }) => {
+const SelectedDetails = ({
+  isVisible,
+  id,
+  text,
+  onClose,
+  title,
+  codePoints
+}) => {
+  const [position, setPosition] = useState('right');
+  const isRight = position === 'right';
+  const toggleIcon = isRight ? <PageEndIcon /> : <PageTopIcon />;
+
+  const onTogglePosition = () => {
+    setPosition(isRight ? 'left' : 'right')
+  }
+
   return (
     <Drawer open={isVisible} onClose={onClose} size="xs" backdrop={false} placement={position}>
       <PanelGroup>
         <Drawer.Header>
           <Drawer.Title>{title}</Drawer.Title>
+          <Drawer.Actions>
+            <IconButton icon={toggleIcon} onClick={onTogglePosition} />
+          </Drawer.Actions>
         </Drawer.Header>
         <Panel className="oversized-text">{text}</Panel>
         <List hover>
