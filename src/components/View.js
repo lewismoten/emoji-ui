@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import ListView from "./ListView";
-import DetailView from "./DetailView";
-import IconView from "./IconView";
-import * as constants from "../utils/constants";
+import ListView from './ListView';
+import DetailView from './DetailView';
+import IconView from './IconView';
+import * as constants from '../utils/constants';
 
 const View = ({ view, list, size, onSelect, selectedId }) => {
   switch (view) {

@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useCallback } from "react";
-import PropTypes from "prop-types";
+import React, { useRef, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
 
 const TextImage = ({ text }) => {
   const canvasRef = useRef(null);
@@ -11,9 +11,9 @@ const TextImage = ({ text }) => {
     const { offsetWidth: width, offsetHeight: height } = canvas;
     canvas.width = width;
     canvas.height = height;
-    const ctx = canvas.getContext("2d");
-    ctx.font = "Arial";
-    ctx.fillStyle = "#000000";
+    const ctx = canvas.getContext('2d');
+    ctx.font = 'Arial';
+    ctx.fillStyle = '#000000';
     ctx.fillText(text, 0, 0);
     frameRequest.current = requestAnimationFrame(onFrame);
   };

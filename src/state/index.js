@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import search from "./search";
+import { combineReducers } from 'redux';
+import search from './search';
 
 const reducers = {
   search,

@@ -1,12 +1,12 @@
-import { createSelector } from "reselect";
-import emoji from "@lewismoten/emoji";
+import { createSelector } from 'reselect';
+import emoji from '@lewismoten/emoji';
 
 const slice = ({ search = {} } = {}) => search;
-const text = createSelector(slice, ({ text = "" }) => text);
+const text = createSelector(slice, ({ text = '' }) => text);
 const matchingKeys = createSelector(text, (text) =>
   Object.keys(emoji).filter((key) =>
     text
-      .split(" ")
+      .split(' ')
       .some((word) => key.toLowerCase().indexOf(word.toLowerCase()) !== -1)
   )
 );
@@ -28,13 +28,13 @@ export const hasSelection = createSelector(
 export const selectedText = createSelector(
   hasSelection,
   selectedId,
-  (hasSelection, selectedId) => (hasSelection ? emoji[selectedId] : "")
+  (hasSelection, selectedId) => (hasSelection ? emoji[selectedId] : '')
 );
 export const selectedTitle = createSelector(
   hasSelection,
   selectedId,
   (hasSelection, selectedId) =>
-    hasSelection ? camelCaseToText(selectedId) : ""
+    hasSelection ? camelCaseToText(selectedId) : ''
 );
 export const selectedCodePoints = createSelector(
   hasSelection,
@@ -45,8 +45,8 @@ export const selectedCodePoints = createSelector(
 const camelCaseToText = (camelCase) =>
   // my17CHARACTERTest = my 17 character test
   camelCase
-    .replace(/\B([A-Z\d])([^A-Z\d])/g, " $1$2")
-    .replace(/([a-z])([\dA-Z])/g, "$1 $2")
+    .replace(/\B([A-Z\d])([^A-Z\d])/g, ' $1$2')
+    .replace(/([a-z])([\dA-Z])/g, '$1 $2')
     .toLowerCase();
 
 const encode = (value) => {
@@ -61,11 +61,11 @@ const encode = (value) => {
       i++; // skip next code as this one overlaps into it
     }
   }
-  return bits.join("");
+  return bits.join('');
 };
 
 const codePoints = (value) =>
   encode(value)
-    .split("\\u")
-    .filter((v) => v !== "")
-    .map((v) => v.replace(/[{}]/g, ""));
+    .split('\\u')
+    .filter((v) => v !== '')
+    .map((v) => v.replace(/[{}]/g, ''));

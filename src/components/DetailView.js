@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { List, FlexboxGrid } from "rsuite";
-import CodePoints from "./CodePoints";
-import EmojiButton from "./EmojiButton";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { List, FlexboxGrid } from 'rsuite';
+import CodePoints from './CodePoints';
+import EmojiButton from './EmojiButton';
 
 const DetailView = ({ list, size, onSelect, selectedId }) => (
   <List hover>

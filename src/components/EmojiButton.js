@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Button } from "rsuite";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Button } from 'rsuite';
 
 const EmojiButton = ({ value, size, onClick, isSelected }) => {
-  const appearance = isSelected ? "primary" : "subtle";
+  const appearance = isSelected ? 'primary' : 'subtle';
   return (
     <Button size={size} appearance={appearance} onClick={onClick}>
       {value}

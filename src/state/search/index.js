@@ -1,6 +1,6 @@
-import { handleActions } from "redux-actions";
-import produce from "immer";
-import * as actions from "./actions";
+import { handleActions } from 'redux-actions';
+import produce from 'immer';
+import * as actions from './actions';
 
 const initialState = {
   allIds: [],
@@ -8,7 +8,7 @@ const initialState = {
   isLoading: false,
   hasLoaded: false,
   hasError: false,
-  text: "",
+  text: '',
   selectedId: undefined,
 };
 

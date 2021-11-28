@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   CustomProvider,
   InputGroup,
@@ -7,14 +7,14 @@ import {
   Dropdown,
   Affix,
   IconButton,
-} from "rsuite";
-import ImageIcon from "@rsuite/icons/Image";
-import ResizeIcon from "@rsuite/icons/Resize";
-import * as actions from "./state/search/actions";
-import * as selectors from "./state/search/selectors";
-import * as constants from "./utils/constants";
-import View from "./components/View";
-import SelectedDetails from "./components/SelectedDetails";
+} from 'rsuite';
+import ImageIcon from '@rsuite/icons/Image';
+import ResizeIcon from '@rsuite/icons/Resize';
+import * as actions from './state/search/actions';
+import * as selectors from './state/search/selectors';
+import * as constants from './utils/constants';
+import View from './components/View';
+import SelectedDetails from './components/SelectedDetails';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,8 +25,8 @@ function App() {
   const selectedCodePoints = useSelector(selectors.selectedCodePoints);
   const hasSelection = useSelector(selectors.hasSelection);
   const [view, setView] = useState(constants.VIEW_ICONS);
-  const themes = ["dark", "high-contrast", "light"];
-  const sizes = ["xs", "sm", "md", "lg"];
+  const themes = ['dark', 'high-contrast', 'light'];
+  const sizes = ['xs', 'sm', 'md', 'lg'];
   const [theme, setTheme] = useState(themes[0]);
   const [size, setSize] = useState(sizes[0]);
 

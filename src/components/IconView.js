@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FlexboxGrid } from "rsuite";
-import EmojiButton from "./EmojiButton";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FlexboxGrid } from 'rsuite';
+import EmojiButton from './EmojiButton';
 
 const IconView = ({ list, size, onSelect, selectedId }) => (
   <FlexboxGrid>

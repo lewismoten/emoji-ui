@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Panel,
   PanelGroup,
@@ -7,11 +7,11 @@ import {
   List,
   FlexboxGrid,
   IconButton,
-} from "rsuite";
-import PageEndIcon from "@rsuite/icons/PageEnd";
-import PageTopIcon from "@rsuite/icons/PageTop";
-import CodePoints from "./CodePoints";
-import TextImage from "./TextImage";
+} from 'rsuite';
+import PageEndIcon from '@rsuite/icons/PageEnd';
+import PageTopIcon from '@rsuite/icons/PageTop';
+import CodePoints from './CodePoints';
+import TextImage from './TextImage';
 
 const SelectedDetails = ({
   isVisible,
@@ -21,12 +21,12 @@ const SelectedDetails = ({
   title,
   codePoints,
 }) => {
-  const [position, setPosition] = useState("right");
-  const isRight = position === "right";
+  const [position, setPosition] = useState('right');
+  const isRight = position === 'right';
   const toggleIcon = isRight ? <PageEndIcon /> : <PageTopIcon />;
 
   const onTogglePosition = () => {
-    setPosition(isRight ? "left" : "right");
+    setPosition(isRight ? 'left' : 'right');
   };
 
   return (

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const UnicodeCode = ({ hex }) => {
   const isExtended = hex.length > 4;
@@ -8,9 +8,9 @@ const UnicodeCode = ({ hex }) => {
       <span className="unicode">
         <span className="escape">\u</span>
         <span className="bracket">
-          {"{"}
+          {'{'}
           <span className="code">{hex}</span>
-          {"}"}
+          {'}'}
         </span>
       </span>
     );
@@ -35,7 +35,7 @@ const Decimal = ({ hex }) => {
 
 const CodePoints = ({ value, format }) => {
   switch (format) {
-    case "es6":
+    case 'es6':
       return (
         <span className="string">
           {value.map((hex, i) => (
@@ -43,7 +43,7 @@ const CodePoints = ({ value, format }) => {
           ))}
         </span>
       );
-    case "hex":
+    case 'hex':
       return (
         <span className="list-delimited">
           {value.map((hex, i) => (
@@ -51,7 +51,7 @@ const CodePoints = ({ value, format }) => {
           ))}
         </span>
       );
-    case "html":
+    case 'html':
       return (
         <span className="list-delimited">
           {value.map((hex, i) => (
@@ -59,7 +59,7 @@ const CodePoints = ({ value, format }) => {
           ))}
         </span>
       );
-    case "decimal":
+    case 'decimal':
       return (
         <span className="list-delimited">
           {value.map((hex, i) => (
@@ -68,7 +68,7 @@ const CodePoints = ({ value, format }) => {
         </span>
       );
     default:
-      return <span>{JSON.stringify(value, null, "  ")}</span>;
+      return <span>{JSON.stringify(value, null, '  ')}</span>;
   }
 };
 
