@@ -10,6 +10,7 @@ import {
 import PageEndIcon from '@rsuite/icons/PageEnd';
 import PageTopIcon from '@rsuite/icons/PageTop';
 import CodePoints from './CodePoints';
+import TextImage from './TextImage';
 
 const SelectedDetails = ({
   isVisible,
@@ -37,6 +38,7 @@ const SelectedDetails = ({
           </Drawer.Actions>
         </Drawer.Header>
         <Panel className="oversized-text">{text}</Panel>
+        <TextImage text={text} />
         <List hover>
           <List.Item>
             <FlexboxGrid>
