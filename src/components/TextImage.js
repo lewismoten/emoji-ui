@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { Container, FlexboxGrid } from 'rsuite';
 
 const GROW = 3;
 const SHRINK = 1;
@@ -54,9 +55,13 @@ const TextImage = ({ text }) => {
   }, [fontSize, text]);
 
   return (
-    <div style={{ minWidth: '256px', minHeight: '256px' }}>
-      <canvas ref={canvasRef} width={MAX_WIDTH} height={MAX_HEIGHT} />
-    </div>
+    <FlexboxGrid justify="space-around">
+      <FlexboxGrid.Item>
+        <Container>
+          <canvas ref={canvasRef} width={MAX_WIDTH} height={MAX_HEIGHT} />
+        </Container>
+      </FlexboxGrid.Item>
+    </FlexboxGrid>
   );
 };
 

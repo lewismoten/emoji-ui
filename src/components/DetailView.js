@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { List, FlexboxGrid } from 'rsuite';
 import CodePoints from './CodePoints';
 import EmojiButton from './EmojiButton';
+import EmojiKey from './EmojiKey';
 
 const DetailView = ({ list, size, onSelect, selectedId }) => (
   <List hover>
@@ -22,10 +23,7 @@ const DetailView = ({ list, size, onSelect, selectedId }) => (
               />
             </FlexboxGrid.Item>
             <FlexboxGrid.Item colspan={6}>
-              <span className="object">
-                emoji<span className="delimiter">.</span>
-                <span className="key">{key}</span>
-              </span>
+              <EmojiKey id={key} />
             </FlexboxGrid.Item>
             <FlexboxGrid.Item colspan={9}>
               <CodePoints value={codePoints} format="es6" />
