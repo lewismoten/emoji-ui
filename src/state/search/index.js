@@ -1,6 +1,6 @@
-import { handleActions } from 'redux-actions'
-import produce from 'immer'
-import * as actions from './actions'
+import { handleActions } from "redux-actions";
+import produce from "immer";
+import * as actions from "./actions";
 
 const initialState = {
   allIds: [],
@@ -8,39 +8,39 @@ const initialState = {
   isLoading: false,
   hasLoaded: false,
   hasError: false,
-  text: '',
-  selectedId: undefined
-}
+  text: "",
+  selectedId: undefined,
+};
 
 const onFilterText = produce((draft, action) => {
-  draft.text = action.payload
-})
+  draft.text = action.payload;
+});
 
 const onSelect = produce((draft, action) => {
-  draft.selectedId = action.payload
-})
-const onDeselect = produce((draft, action) => {
-  draft.selectedId = undefined
-})
+  draft.selectedId = action.payload;
+});
+const onDeselect = produce((draft) => {
+  draft.selectedId = undefined;
+});
 
-const onLoadRequest = produce((draft, action) => {
-  draft.isLoading = true
-})
+const onLoadRequest = produce((draft) => {
+  draft.isLoading = true;
+});
 
 const onLoadSuccess = produce((draft, action) => {
-  draft.hasError = false
-  draft.allIds = action.payload.allIds
-  draft.byId = action.payload.byId
-  draft.hasLoaded = true
-})
+  draft.hasError = false;
+  draft.allIds = action.payload.allIds;
+  draft.byId = action.payload.byId;
+  draft.hasLoaded = true;
+});
 
-const onLoadFailure = produce((draft, action) => {
-  draft.hasError = true
-})
+const onLoadFailure = produce((draft) => {
+  draft.hasError = true;
+});
 
-const onLoadFulfill = produce((draft, action) => {
-  draft.isLoading = false
-})
+const onLoadFulfill = produce((draft) => {
+  draft.isLoading = false;
+});
 
 export default handleActions(
   {
@@ -53,4 +53,4 @@ export default handleActions(
     [actions.deselect.TRIGGER]: onDeselect,
   },
   initialState
-)
+);

@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import {
   Panel,
   PanelGroup,
   Drawer,
   List,
   FlexboxGrid,
-  IconButton
-} from 'rsuite'
-import PageEndIcon from '@rsuite/icons/PageEnd';
-import PageTopIcon from '@rsuite/icons/PageTop';
-import CodePoints from './CodePoints';
-import TextImage from './TextImage';
+  IconButton,
+} from "rsuite";
+import PageEndIcon from "@rsuite/icons/PageEnd";
+import PageTopIcon from "@rsuite/icons/PageTop";
+import CodePoints from "./CodePoints";
+import TextImage from "./TextImage";
 
 const SelectedDetails = ({
   isVisible,
@@ -18,18 +19,24 @@ const SelectedDetails = ({
   text,
   onClose,
   title,
-  codePoints
+  codePoints,
 }) => {
-  const [position, setPosition] = useState('right');
-  const isRight = position === 'right';
+  const [position, setPosition] = useState("right");
+  const isRight = position === "right";
   const toggleIcon = isRight ? <PageEndIcon /> : <PageTopIcon />;
 
   const onTogglePosition = () => {
-    setPosition(isRight ? 'left' : 'right')
-  }
+    setPosition(isRight ? "left" : "right");
+  };
 
   return (
-    <Drawer open={isVisible} onClose={onClose} size="xs" backdrop={false} placement={position}>
+    <Drawer
+      open={isVisible}
+      onClose={onClose}
+      size="xs"
+      backdrop={false}
+      placement={position}
+    >
       <PanelGroup>
         <Drawer.Header>
           <Drawer.Title>{title}</Drawer.Title>
@@ -61,31 +68,47 @@ const SelectedDetails = ({
           <List.Item>
             <FlexboxGrid>
               <FlexboxGrid.Item colspan={3}>Code Points</FlexboxGrid.Item>
-              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="decimal" /></FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}>
+                <CodePoints value={codePoints} format="decimal" />
+              </FlexboxGrid.Item>
             </FlexboxGrid>
           </List.Item>
           <List.Item>
             <FlexboxGrid>
               <FlexboxGrid.Item colspan={3}>Hex</FlexboxGrid.Item>
-              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="hex" /></FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}>
+                <CodePoints value={codePoints} format="hex" />
+              </FlexboxGrid.Item>
             </FlexboxGrid>
           </List.Item>
           <List.Item>
             <FlexboxGrid>
               <FlexboxGrid.Item colspan={3}>ES6</FlexboxGrid.Item>
-              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="es6" /></FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}>
+                <CodePoints value={codePoints} format="es6" />
+              </FlexboxGrid.Item>
             </FlexboxGrid>
           </List.Item>
           <List.Item>
             <FlexboxGrid>
               <FlexboxGrid.Item colspan={3}>HTML</FlexboxGrid.Item>
-              <FlexboxGrid.Item colspan={6}><CodePoints value={codePoints} format="html" /></FlexboxGrid.Item>
+              <FlexboxGrid.Item colspan={6}>
+                <CodePoints value={codePoints} format="html" />
+              </FlexboxGrid.Item>
             </FlexboxGrid>
           </List.Item>
         </List>
       </PanelGroup>
     </Drawer>
   );
-}
+};
 
-export default SelectedDetails
+SelectedDetails.propTypes = {
+  isVisible: PropTypes.bool,
+  id: PropTypes.string,
+  text: PropTypes.string,
+  onClose: PropTypes.func,
+  title: PropTypes.string,
+  codePoints: PropTypes.arrayOf(PropTypes.string),
+};
+export default SelectedDetails;

@@ -2,6 +2,6 @@
 // import * as actions from "./actions";
 // import * as selectors from "./selectors";
 
-export default function * handleRequestSaga () {
-  yield
+export default function* handleRequestSaga() {
+  yield;
 }
