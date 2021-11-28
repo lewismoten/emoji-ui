@@ -22,7 +22,7 @@ Everything needed to setup as a static website can be found in the `dist` folder
 
 An interactive demonstration of the `dist` folder is also hosted on GitHub pages.
 
-<https://lewismoten.github.com/emoji-ui/>
+<https://lewismoten.github.io/emoji-ui/>
 
 # Technology Stack
 
